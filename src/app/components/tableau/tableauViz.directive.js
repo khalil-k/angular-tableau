@@ -12,12 +12,12 @@
       scope: {
         path: '@euiTableauViz',
         vizHeight: '@',
-        filters: '&',
+        filters: '=',
         onCustomViewLoad: '&',
         onCustomViewRemove: '&',
         onCustomViewSave: '&',
         onCustomViewSetDefault: '&',
-        onFilterChange: '=',
+        onFilterChange: '&',
         onMarksSelection: '&',
         onParameterChange: '&',
         onStoryPointSwitch: '&',
@@ -52,9 +52,6 @@
 
           // TODO: May want a way to lazy-init visualizations as they are scrolled into view
           // (especially on mobile devices, to avoid overloading the browser)
-          $log.log('About to instantiate Viz object');
-          $log.log('Path: ' + scope.path);
-          $log.log('Options: ' + angular.toJson(options));
           viz = new tableau.api.Viz(element[0], scope.path, options);
 
           // Implement callbacks for each event if passed in.
